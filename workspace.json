@@ -1,0 +1,650 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "modBlock",
+        "id": "7W=]kNA@Rt~:eqN$+4S}",
+        "x": 458,
+        "y": -193,
+        "inputs": {
+          "RULES": {
+            "block": {
+              "type": "ruleBlock",
+              "id": "I;{W!!kxNog(E`=+LwI,",
+              "extraState": {
+                "isOngoingEvent": true
+              },
+              "fields": {
+                "NAME": "initialisePlayersLeftAlive",
+                "EVENTTYPE": "Ongoing",
+                "OBJECTTYPE": "Global"
+              },
+              "inputs": {
+                "ACTIONS": {
+                  "block": {
+                    "type": "SetVariable",
+                    "id": "G_p[gPO3o.aeuHtAmv9m",
+                    "inputs": {
+                      "VALUE-0": {
+                        "block": {
+                          "type": "variableReferenceBlock",
+                          "id": "66K!fW/]cHogcN0xm5JP",
+                          "extraState": {
+                            "isObjectVar": false
+                          },
+                          "fields": {
+                            "OBJECTTYPE": "Global",
+                            "VAR": {
+                              "id": "UJG:R|m8(!#umUN`rW_^"
+                            }
+                          }
+                        }
+                      },
+                      "VALUE-1": {
+                        "block": {
+                          "type": "Number",
+                          "id": "i6f~lkDgnXQtf/{4Ebs8",
+                          "fields": {
+                            "NUM": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "ruleBlock",
+                  "id": "%=FA^ZZCWC!JAcP}*DI$",
+                  "extraState": {
+                    "isOngoingEvent": false
+                  },
+                  "fields": {
+                    "NAME": "preventRespawn",
+                    "EVENTTYPE": "OnPlayerIrreversiblyDead"
+                  },
+                  "inputs": {
+                    "ACTIONS": {
+                      "block": {
+                        "type": "ShowNotificationMessage",
+                        "id": "rsg)/]jV4%5A;kKK5r_X",
+                        "inputs": {
+                          "VALUE-0": {
+                            "block": {
+                              "type": "Message",
+                              "id": "40Xq$qEsV-U[fM?pOLb:",
+                              "inputs": {
+                                "VALUE-0": {
+                                  "block": {
+                                    "type": "Text",
+                                    "id": "FWdVRo5N^4#^:MNxS|zC",
+                                    "fields": {
+                                      "TEXT": "REDEPLOYMENT DISABLED UNTIL MATCH ENDS"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "VALUE-1": {
+                            "block": {
+                              "type": "EventPlayer",
+                              "id": "RH~$W}*FuSoK^6p7hc7d"
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "SetSpawnOverride",
+                            "id": "Ci;3c$*,:Hj|S=MiESvj",
+                            "inputs": {
+                              "VALUE-0": {
+                                "block": {
+                                  "type": "EventPlayer",
+                                  "id": "!?Rpg|twdG2fh6:Son0{"
+                                }
+                              },
+                              "VALUE-1": {
+                                "block": {
+                                  "type": "Boolean",
+                                  "id": "a0PYyJum7GbZ{zu}D,vR",
+                                  "fields": {
+                                    "BOOL": "FALSE"
+                                  }
+                                }
+                              }
+                            },
+                            "next": {
+                              "block": {
+                                "type": "subroutineInstanceBlock",
+                                "id": "tIn(g$EnE4gYX?//a`e^",
+                                "extraState": {
+                                  "subroutineName": "checkIfLastAlive",
+                                  "parameters": []
+                                },
+                                "fields": {
+                                  "SUBROUTINE_NAME": "checkIfLastAlive"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ruleBlock",
+                      "id": "Hq26XMaWr%o$,Dv!UMA,",
+                      "extraState": {
+                        "isOngoingEvent": true
+                      },
+                      "fields": {
+                        "NAME": "trackHumansLeftAlive",
+                        "EVENTTYPE": "Ongoing",
+                        "OBJECTTYPE": "Global"
+                      },
+                      "inputs": {
+                        "CONDITIONS": {
+                          "block": {
+                            "type": "conditionBlock",
+                            "id": "X(fvTMVY.}b2[p+CY_s-",
+                            "inputs": {
+                              "CONDITION": {
+                                "block": {
+                                  "type": "GreaterThan",
+                                  "id": "`|yG@H~M3_f])ipVg0rB",
+                                  "inputs": {
+                                    "VALUE-0": {
+                                      "block": {
+                                        "type": "GetMatchTimeElapsed",
+                                        "id": ")GS}wQ))r)zr?4epP%Nl"
+                                      }
+                                    },
+                                    "VALUE-1": {
+                                      "block": {
+                                        "type": "Number",
+                                        "id": "hRi9#2pp7w%L|fw,L%ly",
+                                        "fields": {
+                                          "NUM": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "ACTIONS": {
+                          "block": {
+                            "type": "While",
+                            "id": "EtSAq/JKJNyy0tpuOfFw",
+                            "inputs": {
+                              "VALUE-0": {
+                                "block": {
+                                  "type": "GreaterThan",
+                                  "id": "2qO,uqq.w3}e;xyvSEKo",
+                                  "inputs": {
+                                    "VALUE-0": {
+                                      "block": {
+                                        "type": "GetMatchTimeElapsed",
+                                        "id": "Pv(OHJ1grqZ0]5+Cj~X+"
+                                      }
+                                    },
+                                    "VALUE-1": {
+                                      "block": {
+                                        "type": "Number",
+                                        "id": "pFy~{aXO3]a/?[TTEAwm",
+                                        "fields": {
+                                          "NUM": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "DO": {
+                                "block": {
+                                  "type": "SetVariable",
+                                  "id": "S5[7rkM!-d;]@`7F,U%N",
+                                  "inputs": {
+                                    "VALUE-0": {
+                                      "block": {
+                                        "type": "variableReferenceBlock",
+                                        "id": "0tARmu.V1m$*zF5^:l=L",
+                                        "extraState": {
+                                          "isObjectVar": false
+                                        },
+                                        "fields": {
+                                          "OBJECTTYPE": "Global",
+                                          "VAR": {
+                                            "id": "UJG:R|m8(!#umUN`rW_^"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "VALUE-1": {
+                                      "block": {
+                                        "type": "CountOf",
+                                        "id": "[?`7kMIo0A}X;F-t}JL}",
+                                        "inputs": {
+                                          "VALUE-0": {
+                                            "block": {
+                                              "type": "FilteredArray",
+                                              "id": "=xihp+.w`{E/)5Gxab?x",
+                                              "inputs": {
+                                                "VALUE-0": {
+                                                  "block": {
+                                                    "type": "AllPlayers",
+                                                    "id": "hPTk|2RqfKQ@v/Z2H*Xk"
+                                                  }
+                                                },
+                                                "VALUE-1": {
+                                                  "block": {
+                                                    "type": "Equals",
+                                                    "id": "t?~ajE[?WOPDH~Y0+p:{",
+                                                    "inputs": {
+                                                      "VALUE-0": {
+                                                        "block": {
+                                                          "type": "GetSoldierState",
+                                                          "id": "j5+OehtlPv.T+6{960+F",
+                                                          "inputs": {
+                                                            "VALUE-0": {
+                                                              "block": {
+                                                                "type": "CurrentArrayElement",
+                                                                "id": "0+Sl4qQQF[h-_^IZ@qH,"
+                                                              }
+                                                            },
+                                                            "VALUE-1": {
+                                                              "block": {
+                                                                "type": "SoldierStateBoolItem",
+                                                                "id": "VY*R`@1lzdu$X1h$d4Qc",
+                                                                "fields": {
+                                                                  "VALUE-0": "SoldierStateBool",
+                                                                  "VALUE-1": "IsAlive"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "VALUE-1": {
+                                                        "block": {
+                                                          "type": "Boolean",
+                                                          "id": "!1XN|8TjFSg=S.r+!K:]",
+                                                          "fields": {
+                                                            "BOOL": "TRUE"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DisplayCustomNotificationMessage",
+                                      "id": "F!@#d77(1tCw_`EgsE-)",
+                                      "inputs": {
+                                        "VALUE-0": {
+                                          "block": {
+                                            "type": "Message",
+                                            "id": "0x01#YXF%lA$Mz#pq|?8",
+                                            "inputs": {
+                                              "VALUE-0": {
+                                                "block": {
+                                                  "type": "Text",
+                                                  "id": "ZSH!Sg8(WkaTS?=5z+*_",
+                                                  "fields": {
+                                                    "TEXT": "PLAYERS LEFT ALIVE: {}"
+                                                  }
+                                                }
+                                              },
+                                              "VALUE-1": {
+                                                "block": {
+                                                  "type": "GetVariable",
+                                                  "id": "{O^(dG^S8}Xgozt-aZEV",
+                                                  "inputs": {
+                                                    "VALUE-0": {
+                                                      "block": {
+                                                        "type": "variableReferenceBlock",
+                                                        "id": "]1N,[hfU;EmZuKmG}[nn",
+                                                        "extraState": {
+                                                          "isObjectVar": false
+                                                        },
+                                                        "fields": {
+                                                          "OBJECTTYPE": "Global",
+                                                          "VAR": {
+                                                            "id": "UJG:R|m8(!#umUN`rW_^"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "VALUE-1": {
+                                          "block": {
+                                            "type": "CustomMessagesItem",
+                                            "id": "~7Zo7HH7!,*zCm[J}^He",
+                                            "fields": {
+                                              "VALUE-0": "CustomMessages",
+                                              "VALUE-1": "HeaderText"
+                                            }
+                                          }
+                                        },
+                                        "VALUE-2": {
+                                          "block": {
+                                            "type": "Number",
+                                            "id": "XF3$nHKWLPof7d!BHm}J",
+                                            "fields": {
+                                              "NUM": 1
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "Wait",
+                                          "id": "q5bNK4T#Z0#{K_y@kf13",
+                                          "inputs": {
+                                            "VALUE-0": {
+                                              "block": {
+                                                "type": "Number",
+                                                "id": "O4,ZH81Uau($A?{:,_^Y",
+                                                "fields": {
+                                                  "NUM": 0.1
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "subroutineBlock",
+        "id": "D;~fNQG.b.t*UuI3[Lp?",
+        "x": 457,
+        "y": 939,
+        "extraState": {
+          "subroutineName": "checkIfLastAlive",
+          "parameters": []
+        },
+        "fields": {
+          "SUBROUTINE_NAME": "checkIfLastAlive"
+        },
+        "inputs": {
+          "CONDITIONS": {
+            "block": {
+              "type": "conditionBlock",
+              "id": "8YL{5Es~c:K,mE[[t1|:",
+              "inputs": {
+                "CONDITION": {
+                  "block": {
+                    "type": "Equals",
+                    "id": ")Lh@-V?@|cDKEI*)r(7;",
+                    "inputs": {
+                      "VALUE-0": {
+                        "block": {
+                          "type": "GetVariable",
+                          "id": "R/w*B%?D9w^ekG1hj+S]",
+                          "inputs": {
+                            "VALUE-0": {
+                              "block": {
+                                "type": "variableReferenceBlock",
+                                "id": "%s`XzRh_T69MvyCZWcdB",
+                                "extraState": {
+                                  "isObjectVar": false
+                                },
+                                "fields": {
+                                  "OBJECTTYPE": "Global",
+                                  "VAR": {
+                                    "id": "UJG:R|m8(!#umUN`rW_^"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "VALUE-1": {
+                        "block": {
+                          "type": "Number",
+                          "id": "f~j8nn]`TZPiwmb1-w[0",
+                          "fields": {
+                            "NUM": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ACTIONS": {
+            "block": {
+              "type": "SetVariable",
+              "id": "?T]*jVs~ks:=p4+=mha6",
+              "inputs": {
+                "VALUE-0": {
+                  "block": {
+                    "type": "variableReferenceBlock",
+                    "id": ":)P7(;n{[z5F7Eb$yb$s",
+                    "extraState": {
+                      "isObjectVar": false
+                    },
+                    "fields": {
+                      "OBJECTTYPE": "Global",
+                      "VAR": {
+                        "id": "/}82AiIPNW$:dHl^YNN8"
+                      }
+                    }
+                  }
+                },
+                "VALUE-1": {
+                  "block": {
+                    "type": "FirstOf",
+                    "id": "p;b/0[Gq1ou.Y}$]vnmD",
+                    "inputs": {
+                      "VALUE-0": {
+                        "block": {
+                          "type": "FilteredArray",
+                          "id": "o,9jV:Fp_W[cqLNYnLY,",
+                          "inputs": {
+                            "VALUE-0": {
+                              "block": {
+                                "type": "AllPlayers",
+                                "id": "!Xm]O?#~72tGlv1)[A11"
+                              }
+                            },
+                            "VALUE-1": {
+                              "block": {
+                                "type": "Equals",
+                                "id": "0C@+Mk8u=vkQC)}6,N!}",
+                                "inputs": {
+                                  "VALUE-0": {
+                                    "block": {
+                                      "type": "GetSoldierState",
+                                      "id": "n~%R[*wj{f#IjS-+#p!A",
+                                      "inputs": {
+                                        "VALUE-0": {
+                                          "block": {
+                                            "type": "CurrentArrayElement",
+                                            "id": "xcLSK8qnwm`b^_n1|DB4"
+                                          }
+                                        },
+                                        "VALUE-1": {
+                                          "block": {
+                                            "type": "SoldierStateBoolItem",
+                                            "id": "TM!|FVOyhY},xIRrM5_(",
+                                            "fields": {
+                                              "VALUE-0": "SoldierStateBool",
+                                              "VALUE-1": "IsAlive"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "VALUE-1": {
+                                    "block": {
+                                      "type": "Boolean",
+                                      "id": "iu9EiMjBCwA|p]N8:ZS8",
+                                      "fields": {
+                                        "BOOL": "TRUE"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "ShowEventGameModeMessage",
+                  "id": "q-BTGoWl!z)^qDB466MX",
+                  "inputs": {
+                    "VALUE-0": {
+                      "block": {
+                        "type": "Message",
+                        "id": "akw$NFq2~cp}}yhth4F;",
+                        "inputs": {
+                          "VALUE-0": {
+                            "block": {
+                              "type": "Text",
+                              "id": "vP#k4C=BcA)S$1riHXk/",
+                              "fields": {
+                                "TEXT": "GAME OVER - LAST PLAYER ALIVE IS {}"
+                              }
+                            }
+                          },
+                          "VALUE-1": {
+                            "block": {
+                              "type": "GetVariable",
+                              "id": "kIN(#IWm]@}k,sXaBHjq",
+                              "inputs": {
+                                "VALUE-0": {
+                                  "block": {
+                                    "type": "variableReferenceBlock",
+                                    "id": "eWa*Q^e,hI_oc9l6AEH:",
+                                    "extraState": {
+                                      "isObjectVar": false
+                                    },
+                                    "fields": {
+                                      "OBJECTTYPE": "Global",
+                                      "VAR": {
+                                        "id": "/}82AiIPNW$:dHl^YNN8"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "Wait",
+                      "id": "H=!q}NNJZ|4]2f_r_c~Z",
+                      "inputs": {
+                        "VALUE-0": {
+                          "block": {
+                            "type": "Number",
+                            "id": "GKh+%Jo~1#,ylXB.h`pK",
+                            "fields": {
+                              "NUM": 6
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "EndRound",
+                          "id": "v{FLS+}JUREP%WOC{xAR",
+                          "inputs": {
+                            "VALUE-0": {
+                              "block": {
+                                "type": "GetVariable",
+                                "id": "VIgQA5k3t=ddmS+VzY=,",
+                                "inputs": {
+                                  "VALUE-0": {
+                                    "block": {
+                                      "type": "variableReferenceBlock",
+                                      "id": "6iMYJpFt`9*,orq0Xbyx",
+                                      "extraState": {
+                                        "isObjectVar": false
+                                      },
+                                      "fields": {
+                                        "OBJECTTYPE": "Global",
+                                        "VAR": {
+                                          "id": "/}82AiIPNW$:dHl^YNN8"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "variables": [
+    {
+      "name": "playersLeftAlive",
+      "id": "UJG:R|m8(!#umUN`rW_^",
+      "type": "Global"
+    },
+    {
+      "name": "lastPlayer",
+      "id": "/}82AiIPNW$:dHl^YNN8",
+      "type": "Global"
+    }
+  ]
+}
